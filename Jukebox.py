@@ -5,11 +5,10 @@ from pygame import mixer
 
 
 class Song:
-    def __init__(self, title, artist, sound_file, play_time):
+    def __init__(self, title, artist, sound_file):
         self.title = title
         self.artist = artist
         self.sound_file = sound_file
-        self.play_time = play_time
 
 
 class Jukebox:
@@ -63,26 +62,24 @@ class Jukebox:
             self.now_playing = song
             mixer.music.load(song.sound_file)  # Loading Music File
             mixer.music.play()  # Playing Music with Pygame
-            play_time = song.play_time
-            while play_time > 0 and self.running:
+            while self.running and mixer.music.get_busy():
                 if self.skip:
                     self.skip = False
                     break
                 time.sleep(1)
-                play_time -= 1
             mixer.music.stop()
             self.now_playing = None
 
 
 # Create and load and start the jutebox
 jukebox = Jukebox()
-jukebox.add(Song("A Million Dreams", "Greatest Showman", "A Million Dreams.mp3", 30))
-jukebox.add(Song("Annie's Song", "John Denver", "Annie's Song.mp3", 30))
-jukebox.add(Song("Closer To Your Heart", "Natalie Grant", "Closer To Your Heart.mp3", 30))
-jukebox.add(Song("Have It All", "Jason Mraz", "Have_It_All.mp3", 30))
-jukebox.add(Song("I Got a Feeling", "Black Eyed Peas", "I Got a Feeling.mp3", 30))
-jukebox.add(Song("My Heart Will Go On", "Celine Dion", "My Heart Will Go On.mp3", 30))
-jukebox.add(Song("Rewrite The Stars", "Greatest Showman", "Rewrite The Stars.mp3", 30))
+jukebox.add(Song("A Million Dreams", "Greatest Showman", "A Million Dreams.mp3"))
+jukebox.add(Song("Annie's Song", "John Denver", "Annie's Song.mp3"))
+jukebox.add(Song("Closer To Your Heart", "Natalie Grant", "Closer To Your Heart.mp3"))
+jukebox.add(Song("Have It All", "Jason Mraz", "Have_It_All.mp3"))
+jukebox.add(Song("I Got a Feeling", "Black Eyed Peas", "I Got a Feeling.mp3"))
+jukebox.add(Song("My Heart Will Go On", "Celine Dion", "My Heart Will Go On.mp3"))
+jukebox.add(Song("Rewrite The Stars", "Greatest Showman", "Rewrite The Stars.mp3"))
 
 print("Welcome to Jutebox!")
 while True:
