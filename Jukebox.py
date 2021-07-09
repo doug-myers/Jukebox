@@ -71,7 +71,7 @@ class Jukebox:
             self.now_playing = None
 
 
-# Create and load and start the jutebox
+# Create and load and start the jukebox
 jukebox = Jukebox()
 jukebox.add(Song("A Million Dreams", "Greatest Showman", "A Million Dreams.mp3"))
 jukebox.add(Song("Annie's Song", "John Denver", "Annie's Song.mp3"))
@@ -87,9 +87,9 @@ while True:
     print("What would you like to do?")
     print("  0) Exit program")
     if jukebox.running:
-        print("  1) Stop the Jutebox")
+        print("  1) Stop the Jukebox")
     else:
-        print("  1) Start the Jutebox")
+        print("  1) Start the Jukebox")
     print("  2) Add a song to the queue")
     print("  3) Skip to the next song")
     cmd = input("Enter command number: ")
