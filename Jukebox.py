@@ -85,15 +85,17 @@ print("Welcome to Jutebox!")
 while True:
     jukebox.show_status()
     print("What would you like to do?")
+    print("  0) Exit program")
     if jukebox.running:
         print("  1) Stop the Jutebox")
     else:
         print("  1) Start the Jutebox")
     print("  2) Add a song to the queue")
     print("  3) Skip to the next song")
-    print("  4) Exit program")
     cmd = input("Enter command number: ")
-    if cmd == "1":
+    if cmd == "0":
+        break
+    elif cmd == "1":
         if jukebox.running:
             jukebox.stop()
         else:
@@ -108,8 +110,6 @@ while True:
     elif cmd == "3":
         jukebox.next()
         time.sleep(2)
-    elif cmd == "4":
-        break
     elif cmd != "":
         print("Error: Not valid command number.")
     print()
