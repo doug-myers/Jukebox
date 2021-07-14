@@ -15,7 +15,7 @@ class Jukebox:
     def __init__(self):
         self.songs = []
         self.play_queue = Queue()
-        self.running = False  # Indicates the Jutebox is running
+        self.running = False  # Indicates the Jukebox is running
         self.skip = False  # For skipping to the next song
         self.now_playing = None  # Song currently playing
         mixer.init()
@@ -73,22 +73,12 @@ class Jukebox:
 
 # Create and load and start the jukebox
 jukebox = Jukebox()
-'''
-jukebox.add(Song("A Million Dreams", "Greatest Showman", "A Million Dreams.mp3"))
-jukebox.add(Song("Annie's Song", "John Denver", "Annie's Song.mp3"))
-jukebox.add(Song("Closer To Your Heart", "Natalie Grant", "Closer To Your Heart.mp3"))
-jukebox.add(Song("Have It All", "Jason Mraz", "Have_It_All.mp3"))
-jukebox.add(Song("I Got a Feeling", "Black Eyed Peas", "I Got a Feeling.mp3"))
-jukebox.add(Song("My Heart Will Go On", "Celine Dion", "My Heart Will Go On.mp3"))
-jukebox.add(Song("Rewrite The Stars", "Greatest Showman", "Rewrite The Stars.mp3"))
-'''
-songdb = open("songs.db")
-
-for line in songdb:
+song_db = open("songs.db")
+for line in song_db:
     line = line.strip()
-    (title,artist,filePath) = line.split(",")
-    jukebox.add(Song(title, artist,filePath))
-print("Welcome to Jutebox!")
+    (title, artist, filePath) = line.split(",")
+    jukebox.add(Song(title, artist, filePath))
+print("Welcome to Jukebox!")
 while True:
     jukebox.show_status()
     print("What would you like to do?")
