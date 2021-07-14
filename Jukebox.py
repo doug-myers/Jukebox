@@ -91,6 +91,7 @@ while True:
     print("  3) Skip to the next song")
     cmd = input("Enter command number: ")
     if cmd == "0":
+        jukebox.stop()
         break
     elif cmd == "1":
         if jukebox.running:
