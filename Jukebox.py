@@ -76,7 +76,8 @@ jukebox = Jukebox()
 song_db = open("songs.db")
 for line in song_db:
     line = line.strip()
-    (title, artist, filePath) = line.split(",")
+    print(line)
+    (title, artist, filePath) = line.split("|")
     jukebox.add(Song(title, artist, filePath))
 print("Welcome to Jukebox!")
 while True:
